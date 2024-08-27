@@ -1,0 +1,35 @@
+{
+  "name": "popup-made-simple",
+  "version": "0.1.0",
+  "description": "The Popup made simple plugin helps you simply create a popup.",
+  "author": "Alex Shandor",
+  "license": "GPL-3.0-or-later",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build --webpack-copy-php",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start --webpack-copy-php"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^14.0.0",
+    "@wordpress/blocks": "^13.5.0",
+    "@wordpress/components": "^28.5.0",
+    "@wordpress/core-data": "^7.5.0",
+    "@wordpress/data": "^10.5.0",
+    "@wordpress/element": "^6.5.0",
+    "@wordpress/i18n": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/wordpress__block-editor": "latest",
+    "@types/wordpress__blocks": "latest",
+    "@types/wordpress__components": "latest",
+    "@wordpress/scripts": "latest",
+    "ts-loader": "latest",
+    "typescript": "latest"
+  }
+}

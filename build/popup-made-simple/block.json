@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "popup-made-simple/popup-made-simple",
+  "version": "1.0.0",
+  "title": "Popup made simple",
+  "category": "embed",
+  "icon": "admin-generic",
+  "description": "The Gutenberg block helps you simply create a popup.",
+  "attributes": {
+    "content": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "multiple": false,
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "alignWide": true,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ]
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./script.css",
+  "script": "file:./script.js",
+  "render": "file:./render.php"
+}
