@@ -9,11 +9,16 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
+            'Pupuga\\' => 7,
             'PopupMadeSimple\\' => 16,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Pupuga\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Backend/Pupuga',
+        ),
         'PopupMadeSimple\\' => 
         array (
             0 => __DIR__ . '/../..' . '/',

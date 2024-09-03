@@ -18,6 +18,6 @@ if (!defined('ABSPATH')) {
 } else {
 	add_action('init', function () {
 		require_once __DIR__ . "/vendor/autoload.php";
-		PopupMadeSimple\Blocks\Blocks::app();
+		\PopupMadeSimple\Backend\Init::app();
 	}, 10000);
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace PopupMadeSimple\Blocks;
+namespace PopupMadeSimple\Backend\Blocks;
 
 final class Blocks
 {
@@ -11,8 +11,10 @@ final class Blocks
 	];
 
 	public static function app(bool $useFields = false): self
-	{
-		return self::$instance = is_null(self::$instance) ? new self($useFields) : self::$instance;
+	{	
+		return self::$instance = is_null(self::$instance) 
+			? new self($useFields) 
+			: self::$instance;
 	}
 
 	private function __construct(bool $useFields)
@@ -27,7 +29,7 @@ final class Blocks
 
 	private function registerFields(string $block): void
 	{
-		$fields = json_decode(file_get_contents(wp_normalize_path(dirname(__DIR__) . "/src/{$block}/fields.json")), true);
+		$fields = json_decode(file_get_contents(wp_normalize_path(dirname(__DIR__, 2) . "/src/{$block}/fields.json")), true);
 		foreach ($fields as $index => $field) {
 			if ($field['addPostMeta'] === true) {
 				$postType = $field['postType'] ?? '';
@@ -37,7 +39,7 @@ final class Blocks
 			}
 		}
 	}
-	
+
 	private function registerPostMeta(string $postType, string $block, string $slug, string $type): void
 	{
 		register_post_meta($postType, "_{$block}_{$slug}", array(
@@ -53,6 +55,6 @@ final class Blocks
 
 	private function registerBlock(string $block): void
 	{
-		register_block_type(dirname(__DIR__) . '/build/' . $block);
+		register_block_type(dirname(__DIR__, 2) . '/build/' . $block);
 	}
 }

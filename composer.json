@@ -1,7 +1,8 @@
 {
-  "autoload": {
-    "psr-4": {
-      "PopupMadeSimple\\": ""
-    }
-  }
+	"autoload": {
+		"psr-4": {
+			"Pupuga\\": "Backend/Pupuga/",
+			"PopupMadeSimple\\": ""
+		}
+	}
 }
