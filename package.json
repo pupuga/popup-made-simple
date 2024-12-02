@@ -1,35 +1,29 @@
 {
   "name": "popup-made-simple",
-  "version": "0.1.0",
-  "description": "The Popup made simple plugin helps you simply create a popup.",
+  "version": "1.2.0",
   "author": "Alex Shandor",
   "license": "GPL-3.0-or-later",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "wp-scripts build --webpack-copy-php",
+    "start:admin": "wp-scripts start src/admin/index.js --output-path=dist/admin",
+    "build:admin": "wp-scripts build src/admin/index.js --output-path=dist/admin",
+    "start:client": "wp-scripts start src/client/index.js --output-path=dist/client",
+    "build:client": "wp-scripts build src/client/index.js --output-path=dist/client",
     "format": "wp-scripts format",
     "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js",
-    "packages-update": "wp-scripts packages-update",
-    "plugin-zip": "wp-scripts plugin-zip",
-    "start": "wp-scripts start --webpack-copy-php"
+    "lint:js": "wp-scripts lint-js"
   },
   "dependencies": {
-    "@wordpress/block-editor": "^14.0.0",
-    "@wordpress/blocks": "^13.5.0",
-    "@wordpress/components": "^28.5.0",
-    "@wordpress/core-data": "^7.5.0",
-    "@wordpress/data": "^10.5.0",
-    "@wordpress/element": "^6.5.0",
-    "@wordpress/i18n": "^5.5.0"
+    "@wordpress/components": "latest",
+    "@wordpress/data": "latest",
+    "@wordpress/edit-post": "latest",
+    "@wordpress/element": "latest",
+    "@wordpress/plugins": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
   "devDependencies": {
-    "@types/react": "latest",
-    "@types/wordpress__block-editor": "latest",
-    "@types/wordpress__blocks": "latest",
-    "@types/wordpress__components": "latest",
-    "@wordpress/scripts": "latest",
-    "ts-loader": "latest",
-    "typescript": "latest"
+    "@wordpress/scripts": "latest"
   }
 }

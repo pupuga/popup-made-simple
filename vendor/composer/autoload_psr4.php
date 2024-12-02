@@ -6,6 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Pupuga\\' => array($baseDir . '/Backend/Pupuga'),
     'PopupMadeSimple\\' => array($baseDir . '/'),
 );
