@@ -8,7 +8,7 @@ Requires PHP:      8.3
 Stable tag:        1.2.0
 License:           GPL-3.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-3.0.html
-Tags:              modal window, popup, GDPR popup
+Tags:              modal popup, popup, popups, GDPR popup
 
 The plugin enables you to easily add customizable popups to your posts and pages using the Gutenberg editor.
 
