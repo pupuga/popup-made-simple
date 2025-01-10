@@ -356,7 +356,7 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".js?ver=" + "cd962d19d02929fc1760" + "";
+/******/ 			return "" + chunkId + ".js?ver=" + "7b81dd497742f6a463de" + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	
