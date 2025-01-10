@@ -6,6 +6,7 @@ const settings = {
         windowWidth: 800,
         borderRadius: 0,
         backgroundColor: "#FFFFFF",
+        padding: 10,
         appearTime: 0,
         close: true
     }

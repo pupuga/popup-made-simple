@@ -1,9 +1,10 @@
 class WindowStyle {
 
-    constructor(position, width, borderRadius, backgroundColor) {
+    constructor(position, width, padding, borderRadius, backgroundColor) {
         this.style = {};
         this._setPosition(width, position);
         this._setWidth(width);
+        this._setPadding(padding);
         this._setBorderRadius(borderRadius);
         this._setBackgroundColor(backgroundColor);
     }
@@ -46,6 +47,9 @@ class WindowStyle {
 
     _setWidth(width) {
         this.style.maxWidth = `${width}px`;
+    }
+    _setPadding(padding) {
+        this.style.padding = `${padding}px`;
     }
 
     _setBorderRadius(borderRadius) {

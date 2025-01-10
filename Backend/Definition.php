@@ -17,9 +17,10 @@ const POST_TYPE = 'popup-made-simple';
         '_popup_made_simple_window_width' => 'integer',
         '_popup_made_simple_window_border_radius' => 'integer',
         '_popup_made_simple_window_background_color' => 'string',
+        '_popup_made_simple_window_padding' => 'integer',
         '_popup_made_simple_appear_time' => 'integer',
-        '_popup_made_simple_close' => 'boolean',
-    ];
+        '_popup_made_simple_close' => 'boolean'
+	];
     const META_FIELD_PAGE = '_popup_made_simple_page';
 
     private ?string $rootPath;

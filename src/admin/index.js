@@ -1,10 +1,10 @@
 import "./index.scss";
 import settings from "../settings";
-import { registerPlugin } from "@wordpress/plugins";
-import { PluginDocumentSettingPanel } from '@wordpress/editor';
-import { Spinner, SelectControl, RangeControl, ColorPicker, CheckboxControl } from "@wordpress/components";
-import { useSelect, useDispatch } from "@wordpress/data";
-import { useEffect, useState } from "@wordpress/element";
+import {registerPlugin} from "@wordpress/plugins";
+import {PluginDocumentSettingPanel} from '@wordpress/editor';
+import {Spinner, SelectControl, RangeControl, ColorPicker, CheckboxControl} from "@wordpress/components";
+import {useSelect, useDispatch} from "@wordpress/data";
+import {useEffect, useState} from "@wordpress/element";
 
 
 const positionOptions = [
@@ -22,14 +22,14 @@ const animationOptions = [
 ];
 
 const PostTypeSidebar = () => {
-    const { meta, postType } = useSelect(select => {
+    const {meta, postType} = useSelect(select => {
         const editor = select("core/editor");
         return {
             meta: editor.getEditedPostAttribute("meta") || {},
             postType: editor.getCurrentPostType(),
         };
     }, []);
-    const { editPost } = useDispatch("core/editor");
+    const {editPost} = useDispatch("core/editor");
     const [pages, setPages] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -44,16 +44,17 @@ const PostTypeSidebar = () => {
             _popup_made_simple_window_width: meta?._popup_made_simple_window_width || settings.defaultValues.windowWidth,
             _popup_made_simple_window_border_radius: meta?._popup_made_simple_window_border_radius || settings.defaultValues.borderRadius,
             _popup_made_simple_window_background_color: meta?._popup_made_simple_window_background_color || settings.defaultValues.backgroundColor,
+            _popup_made_simple_window_padding: meta?._popup_made_simple_window_padding || settings.defaultValues.padding,
             _popup_made_simple_appear_time: meta?._popup_made_simple_appear_time || settings.defaultValues.appearTime,
             _popup_made_simple_close: meta?._popup_made_simple_close || settings.defaultValues.close,
         };
 
-        editPost({ meta: { ...meta, ...defaultMeta } });
-        
+        editPost({meta: {...meta, ...defaultMeta}});
+
     }, []);
 
     useEffect(() => {
-        wp.apiFetch({ path: "/wp/v2/pages" })
+        wp.apiFetch({path: "/wp/v2/pages"})
             .then((response) => {
                 const pageOptions = response.map((page) => ({
                     label: page.title.rendered,
@@ -71,37 +72,44 @@ const PostTypeSidebar = () => {
 
     return (
         <>
-            {loading ? <Spinner /> :
+            {loading ? <Spinner/> :
                 <PluginDocumentSettingPanel name={`${settings.postType}-config`} title="Popup Config" className={`${settings.postType}`}>
                     <SelectControl
                         label="Select a page"
                         value={meta?._popup_made_simple_page || ""}
-                        options={[{ label: "All pages", value: "0" }, ...pages]}
-                        onChange={value => editPost({ meta: { ...meta, _popup_made_simple_page: value } })}
+                        options={[{label: "All pages", value: "0"}, ...pages]}
+                        onChange={value => editPost({meta: {...meta, _popup_made_simple_page: value}})}
                     />
                     <SelectControl
                         label="Select a popup position"
                         value={meta?._popup_made_simple_position}
                         options={positionOptions}
-                        onChange={value => editPost({ meta: { ...meta, _popup_made_simple_position: value } })}
+                        onChange={value => editPost({meta: {...meta, _popup_made_simple_position: value}})}
                     />
                     <SelectControl
                         label="Select a type of animation"
                         value={meta?._popup_made_simple_animation}
                         options={animationOptions}
-                        onChange={value => editPost({ meta: { ...meta, _popup_made_simple_animation: value } })}
+                        onChange={value => editPost({meta: {...meta, _popup_made_simple_animation: value}})}
                     />
                     <RangeControl
-                        label="Enter a window width"
+                        label="Enter a window width (px)"
                         value={meta?._popup_made_simple_window_width}
-                        onChange={value => editPost({ meta: { ...meta, _popup_made_simple_window_width: value } })}
+                        onChange={value => editPost({meta: {...meta, _popup_made_simple_window_width: value}})}
                         min={500}
                         max={4096}
                     />
                     <RangeControl
-                        label="Enter a window border radius"
+                        label="Enter a window padding (px)"
+                        value={meta?._popup_made_simple_window_padding}
+                        onChange={value => editPost({meta: {...meta, _popup_made_simple_window_padding: value}})}
+                        min={1}
+                        max={50}
+                    />
+                    <RangeControl
+                        label="Enter a window border radius (px)"
                         value={meta?._popup_made_simple_window_border_radius}
-                        onChange={value => editPost({ meta: { ...meta, _popup_made_simple_window_border_radius: value } })}
+                        onChange={value => editPost({meta: {...meta, _popup_made_simple_window_border_radius: value}})}
                         min={0}
                         max={20}
                     />
@@ -109,14 +117,19 @@ const PostTypeSidebar = () => {
                         <label>Choose a window background color</label>
                         <ColorPicker
                             color={meta?._popup_made_simple_window_background_color}
-                            onChange={value => editPost({ meta: { ...meta, _popup_made_simple_window_background_color: value } })}
+                            onChange={value => editPost({
+                                meta: {
+                                    ...meta,
+                                    _popup_made_simple_window_background_color: value
+                                }
+                            })}
                             enableAlpha={false}
                         />
                     </div>
                     <RangeControl
                         label="Enter a time until appearance (s)"
                         value={meta?._popup_made_simple_appear_time}
-                        onChange={value => editPost({ meta: { ...meta, _popup_made_simple_appear_time: value } })}
+                        onChange={value => editPost({meta: {...meta, _popup_made_simple_appear_time: value}})}
                         min={0}
                         max={10 * 60}
                     />
@@ -124,7 +137,7 @@ const PostTypeSidebar = () => {
                         <CheckboxControl
                             label="The closing like the acceptance"
                             checked={meta?._popup_made_simple_close}
-                            onChange={value => editPost({ meta: { ...meta, _popup_made_simple_close: value } })}
+                            onChange={value => editPost({meta: {...meta, _popup_made_simple_close: value}})}
                         />
                     </div>
                 </PluginDocumentSettingPanel>
@@ -133,4 +146,4 @@ const PostTypeSidebar = () => {
     );
 };
 
-registerPlugin(`${settings.postType}-sidebar`, { render: PostTypeSidebar });
+registerPlugin(`${settings.postType}-sidebar`, {render: PostTypeSidebar});

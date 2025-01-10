@@ -42,6 +42,7 @@ const Window = ({el}) => {
                      style={(new WindowStyle(
                          el?.meta?._popup_made_simple_position[0],
                          el?.meta?._popup_made_simple_window_width[0],
+                         el?.meta?._popup_made_simple_window_padding[0],
                          el?.meta?._popup_made_simple_window_border_radius[0],
                          el?.meta?._popup_made_simple_window_background_color[0]
                      )).getStyle()}
