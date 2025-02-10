@@ -15,10 +15,7 @@ const Popup = ({el}) => {
         el?.meta?._popup_made_simple_window_background_color[0]
     );
 
-    console.log(objectPopupStyle.getWindowStyle());
-
     const [close, setClose] = useState(true);
-
     const onClose = () => {
         setClose(true);
     }
