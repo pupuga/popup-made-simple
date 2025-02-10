@@ -15,9 +15,11 @@ const POST_TYPE = 'popup-made-simple';
         '_popup_made_simple_position' => 'string',
         '_popup_made_simple_animation' => 'string',
         '_popup_made_simple_window_width' => 'integer',
+        '_popup_made_simple_window_padding' => 'integer',
+        '_popup_made_simple_window_border_thickness' => 'integer',
+        '_popup_made_simple_window_border_color' => 'string',
         '_popup_made_simple_window_border_radius' => 'integer',
         '_popup_made_simple_window_background_color' => 'string',
-        '_popup_made_simple_window_padding' => 'integer',
         '_popup_made_simple_appear_time' => 'integer',
         '_popup_made_simple_close' => 'boolean'
 	];

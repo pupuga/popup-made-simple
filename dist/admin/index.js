@@ -18,9 +18,11 @@ const settings = {
     position: "center-center",
     animation: "fade",
     windowWidth: 800,
+    padding: 10,
+    borderThickness: 1,
+    borderColor: "lightgray",
     borderRadius: 0,
     backgroundColor: "#FFFFFF",
-    padding: 10,
     appearTime: 0,
     close: true
   }
@@ -248,9 +250,11 @@ const PostTypeSidebar = () => {
       _popup_made_simple_position: meta?._popup_made_simple_position || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.position,
       _popup_made_simple_animation: meta?._popup_made_simple_animation || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.animation,
       _popup_made_simple_window_width: meta?._popup_made_simple_window_width || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.windowWidth,
+      _popup_made_simple_window_padding: meta?._popup_made_simple_window_padding || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.padding,
+      _popup_made_simple_window_border_thickness: meta?._popup_made_simple_window_border_thickness || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.borderThickness,
+      _popup_made_simple_window_border_color: meta?._popup_made_simple_window_border_color || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.borderColor,
       _popup_made_simple_window_border_radius: meta?._popup_made_simple_window_border_radius || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.borderRadius,
       _popup_made_simple_window_background_color: meta?._popup_made_simple_window_background_color || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.backgroundColor,
-      _popup_made_simple_window_padding: meta?._popup_made_simple_window_padding || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.padding,
       _popup_made_simple_appear_time: meta?._popup_made_simple_appear_time || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.appearTime,
       _popup_made_simple_close: meta?._popup_made_simple_close || _settings__WEBPACK_IMPORTED_MODULE_1__["default"].defaultValues.close
     };
@@ -334,8 +338,33 @@ const PostTypeSidebar = () => {
             _popup_made_simple_window_padding: value
           }
         }),
+        min: 0,
+        max: 50
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+        label: "Enter a window border thickness (px)",
+        value: meta?._popup_made_simple_window_border_thickness,
+        onChange: value => editPost({
+          meta: {
+            ...meta,
+            _popup_made_simple_window_border_thickness: value
+          }
+        }),
         min: 1,
         max: 50
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        className: "field-wrapper-row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
+          children: "Choose a window border color"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPicker, {
+          color: meta?._popup_made_simple_window_border_color,
+          onChange: value => editPost({
+            meta: {
+              ...meta,
+              _popup_made_simple_window_border_color: value
+            }
+          }),
+          enableAlpha: false
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
         label: "Enter a window border radius (px)",
         value: meta?._popup_made_simple_window_border_radius,
@@ -346,7 +375,7 @@ const PostTypeSidebar = () => {
           }
         }),
         min: 0,
-        max: 20
+        max: 50
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "field-wrapper-row",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {

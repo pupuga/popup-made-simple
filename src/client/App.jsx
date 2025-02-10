@@ -1,11 +1,11 @@
 import React from "react";
-import Window from "./Window";
+import Popup from "./Popup";
 
 const App = () => {
     return (
         <>
             { SIMPLE_POP_UP_DATA.map(el => {
-                return <Window key={el.id} el={el} />
+                return <Popup key={el.id} el={el} />
             })}
         </>
     );

@@ -5,10 +5,9 @@
     box-sizing: border-box;
     position: fixed;
     z-index: 1000000000;
-    width: calc(100% - $indent * 2 * 2);
+    max-width: 100%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    border: 1px solid lightgray;
-
+    border-style: solid;
 
     @keyframes fadeIn {
         from {
@@ -56,14 +55,13 @@
 
     &__close {
         button {
+            box-sizing: border-box;
             cursor: pointer;
             width: 30px;
             height: 30px;
             border-radius: 15px;
             padding: 0;
             position: absolute;
-            right: -1 * $indent;
-            top: -1 * $indent;
             background-color: black;
             border: 2px solid black;
             display: flex;
@@ -94,5 +92,11 @@
                 }
             }
         }
+    }
+
+    &__content {
+        overflow-y: auto;
+        display: block;
+        height: 100%;
     }
 }

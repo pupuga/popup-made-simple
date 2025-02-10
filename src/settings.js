@@ -4,9 +4,11 @@ const settings = {
         position: "center-center",
         animation: "fade",
         windowWidth: 800,
+        padding: 10,
+        borderThickness: 1,
+        borderColor: "lightgray",
         borderRadius: 0,
         backgroundColor: "#FFFFFF",
-        padding: 10,
         appearTime: 0,
         close: true
     }

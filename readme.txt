@@ -28,6 +28,8 @@ Go to your WordPress dashboard. Install the plugin either via the WordPress plug
 
 == Changelog ==
 = 1.2.0 =
+New styles have been added.
+= 1.2.0 =
 The animation has been added.
 = 1.1.0 =
 The bugs have been fixed.

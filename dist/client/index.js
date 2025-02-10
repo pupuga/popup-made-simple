@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Window__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Window */ "./src/client/Window.jsx");
+/* harmony import */ var _Popup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Popup */ "./src/client/Popup.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
 
@@ -23,7 +23,7 @@ __webpack_require__.r(__webpack_exports__);
 const App = () => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: SIMPLE_POP_UP_DATA.map(el => {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Window__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Popup__WEBPACK_IMPORTED_MODULE_1__["default"], {
         el: el
       }, el.id);
     })
@@ -58,10 +58,10 @@ class Cookie {
 
 /***/ }),
 
-/***/ "./src/client/Window.jsx":
-/*!*******************************!*\
-  !*** ./src/client/Window.jsx ***!
-  \*******************************/
+/***/ "./src/client/Popup.jsx":
+/*!******************************!*\
+  !*** ./src/client/Popup.jsx ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../settings */ "./src/settings.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _WindowStyle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./WindowStyle */ "./src/client/WindowStyle.js");
+/* harmony import */ var _PopupStyle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PopupStyle */ "./src/client/PopupStyle.js");
 /* harmony import */ var _Cookie__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Cookie */ "./src/client/Cookie.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
@@ -80,9 +80,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const Window = ({
+const Popup = ({
   el
 }) => {
+  const objectPopupStyle = new _PopupStyle__WEBPACK_IMPORTED_MODULE_2__["default"]().setParams(el?.meta?._popup_made_simple_position[0], el?.meta?._popup_made_simple_window_width[0], el?.meta?._popup_made_simple_window_padding[0], el?.meta?._popup_made_simple_window_border_thickness[0], el?.meta?._popup_made_simple_window_border_color[0], el?.meta?._popup_made_simple_window_border_radius[0], el?.meta?._popup_made_simple_window_background_color[0]);
+  console.log(objectPopupStyle.getWindowStyle());
   const [close, setClose] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
   const onClose = () => {
     setClose(true);
@@ -109,11 +111,12 @@ const Window = ({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: close || /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: `${_settings__WEBPACK_IMPORTED_MODULE_0__["default"].postType} ${_settings__WEBPACK_IMPORTED_MODULE_0__["default"].postType}-${el.id} ${_settings__WEBPACK_IMPORTED_MODULE_0__["default"].postType}--${el?.meta?._popup_made_simple_animation[0]}`,
-      style: new _WindowStyle__WEBPACK_IMPORTED_MODULE_2__["default"](el?.meta?._popup_made_simple_position[0], el?.meta?._popup_made_simple_window_width[0], el?.meta?._popup_made_simple_window_padding[0], el?.meta?._popup_made_simple_window_border_radius[0], el?.meta?._popup_made_simple_window_background_color[0]).getStyle(),
+      style: objectPopupStyle.getWindowStyle(),
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: `${_settings__WEBPACK_IMPORTED_MODULE_0__["default"].postType}__close`,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          onClick: () => el?.meta?._popup_made_simple_close[0] ? closeWindow() : onClose()
+          onClick: () => el?.meta?._popup_made_simple_close[0] ? closeWindow() : onClose(),
+          style: objectPopupStyle.getCloseStyle()
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: `${_settings__WEBPACK_IMPORTED_MODULE_0__["default"].postType}__content`,
@@ -126,31 +129,47 @@ const Window = ({
     })
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Window);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popup);
 
 /***/ }),
 
-/***/ "./src/client/WindowStyle.js":
-/*!***********************************!*\
-  !*** ./src/client/WindowStyle.js ***!
-  \***********************************/
+/***/ "./src/client/PopupStyle.js":
+/*!**********************************!*\
+  !*** ./src/client/PopupStyle.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-class WindowStyle {
-  constructor(position, width, padding, borderRadius, backgroundColor) {
-    this.style = {};
+class PopupStyle {
+  constructor() {
+    this._style = {};
+    this._indent = 20;
+    this._closeDiameter = 30;
+    this._style = {};
+    this._style.window = {};
+    this._style.close = {};
+  }
+  setParams(position, width, padding, borderThickness, borderColor, borderRadius, backgroundColor) {
     this._setPosition(width, position);
     this._setWidth(width);
+    this._setHeight();
     this._setPadding(padding);
-    this._setBorderRadius(borderRadius);
+    this._borderThickness(borderThickness), this._borderColor(borderColor), this._setBorderRadius(borderRadius);
     this._setBackgroundColor(backgroundColor);
+    this._setClose(borderThickness);
+    return this;
   }
   getStyle() {
-    return this.style;
+    return this._style;
+  }
+  getWindowStyle() {
+    return this._style.window;
+  }
+  getCloseStyle() {
+    return this._style.close;
   }
   _setPosition(width = 0, position) {
     let transformVertical;
@@ -159,39 +178,53 @@ class WindowStyle {
     switch (vertical) {
       case "top":
       case "bottom":
-        this.style[vertical] = "20px";
+        this._style.window[vertical] = `${this._indent}px`;
         transformVertical = "0";
         break;
       default:
-        this.style.top = "50%";
+        this._style.window.top = "50%";
         transformVertical = "-50%";
     }
     switch (horizontal) {
       case "left":
       case "right":
-        this.style[horizontal] = "0";
+        this._style.window[horizontal] = `${this._indent}px`;
         transformHorizontal = "0";
         break;
       default:
-        this.style.left = "50%";
+        this._style.window.left = "50%";
         transformHorizontal = "-50%";
     }
-    this.style.transform = `translate(${transformHorizontal}, ${transformVertical})`;
+    this._style.window.transform = `translate(${transformHorizontal}, ${transformVertical})`;
   }
   _setWidth(width) {
-    this.style.maxWidth = `${width}px`;
+    this._style.window.width = width === "100%" ? "100%" : `${width}px`;
+  }
+  _setHeight() {
+    this._style.window.maxHeight = `calc(100% - ${2 * this._indent}px)`;
   }
   _setPadding(padding) {
-    this.style.padding = `${padding}px`;
+    this._style.window.padding = `${padding}px`;
+  }
+  _borderThickness(borderThickness) {
+    this._style.window.borderWidth = `${borderThickness}px`;
+  }
+  _borderColor(borderColor) {
+    this._style.window.borderColor = `${borderColor}`;
   }
   _setBorderRadius(borderRadius) {
-    this.style.borderRadius = `${borderRadius}px`;
+    this._style.window.borderRadius = `${borderRadius}px`;
   }
   _setBackgroundColor(backgroundColor) {
-    this.style.backgroundColor = backgroundColor;
+    this._style.window.backgroundColor = backgroundColor;
+  }
+  _setClose(borderThickness) {
+    const indent = `-${this._closeDiameter * 0.5 + 0.5 * borderThickness}px`;
+    this._style.close.top = indent;
+    this._style.close.right = indent;
   }
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WindowStyle);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupStyle);
 
 /***/ }),
 
@@ -211,9 +244,11 @@ const settings = {
     position: "center-center",
     animation: "fade",
     windowWidth: 800,
+    padding: 10,
+    borderThickness: 1,
+    borderColor: "lightgray",
     borderRadius: 0,
     backgroundColor: "#FFFFFF",
-    padding: 10,
     appearTime: 0,
     close: true
   }
@@ -356,7 +391,7 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".js?ver=" + "7b81dd497742f6a463de" + "";
+/******/ 			return "" + chunkId + ".js?ver=" + "be903a860fc497e59493" + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	
