@@ -5,7 +5,7 @@ Author URI:        https://github.com/pupuga
 Requires at least: 6.7
 Tested up to:      6.7
 Requires PHP:      8.3
-Stable tag:        1.3.0
+Stable tag:        1.4.0
 License:           GPL-3.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 Tags:              modal popup, popup, popups, GDPR popup
