@@ -27,7 +27,9 @@ Go to your WordPress dashboard. Install the plugin either via the WordPress plug
 3. Popup on a public page.
 
 == Changelog ==
-= 1.2.0 =
+= 1.4.0 =
+New styles have been added.
+= 1.3.0 =
 New styles have been added.
 = 1.2.0 =
 The animation has been added.
