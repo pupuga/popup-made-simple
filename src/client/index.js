@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {createRoot} from "react-dom/client";
 import settings from "../settings";
 import App from "./App";
@@ -14,13 +14,15 @@ const renderApp = () => {
         document.body.appendChild(rootElement);
         createRoot(rootElement).render(<App/>);
         if (typeof wpcf7 !== "undefined") {
-            rootElement.querySelectorAll(".wpcf7-form").forEach((form) => {
-                wpcf7.init(form);
-            });
+            setTimeout(() => {
+                rootElement.querySelectorAll(".wpcf7-form").forEach((form) => {
+                    wpcf7.init(form);
+                });
+            }, 100);
         }
     }
 }
 
-renderApp();
-
-//document.addEventListener("DOMContentLoaded", renderApp);
+//renderApp();
+//window.addEventListener("load", renderApp);
+document.addEventListener("DOMContentLoaded", renderApp);
