@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {createRoot} from "react-dom/client";
 import settings from "../settings";
 import App from "./App";

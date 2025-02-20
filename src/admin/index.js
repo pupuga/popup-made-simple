@@ -4,7 +4,7 @@ import {registerPlugin} from "@wordpress/plugins";
 import {PluginDocumentSettingPanel} from '@wordpress/editor';
 import {Spinner, SelectControl, RangeControl, ColorPicker, CheckboxControl} from "@wordpress/components";
 import {useSelect, useDispatch} from "@wordpress/data";
-import {useEffect, useState} from "@wordpress/element";
+import {useEffect, useState} from "react";
 
 
 const positionOptions = [

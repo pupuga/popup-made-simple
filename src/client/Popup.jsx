@@ -26,12 +26,21 @@ const Popup = ({el}) => {
     }
 
     useEffect(() => {
+        const importCss = async() => {
+            if (el?.meta?._popup_made_simple_form_style[0] === "1") {
+                await import('./form.scss');
+            }
+        }
+        importCss();
+    }, []);
+
+    useEffect(() => {
         const time = setTimeout(() => {
             setClose(false);
         }, el.meta._popup_made_simple_appear_time[0] * 1000);
 
         return () => clearTimeout(time);
-    }, [])
+    }, []);
 
     useEffect(() => {
         if (close === false) {
