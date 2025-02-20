@@ -9,16 +9,6 @@ use PopupMadeSimple\Backend\Definition;
 final class Activation
 {
     public static ?self $instance = null;
-    /*private array $meta = [
-        '_popup_made_simple_page' => '0',
-        '_popup_made_simple_position' => 'center-center',
-        '_popup_made_simple_animation' => 'fade',
-        '_popup_made_simple_window_width' => 1024,
-        '_popup_made_simple_window_border_radius' => 10,
-        '_popup_made_simple_window_background_color' => '#ffffff',
-        '_popup_made_simple_appear_time' => 0,
-        '_popup_made_simple_close' => true,
-    ];*/
 
     private array $post = [
         'post_title'    => 'Use of cookies',

@@ -9,13 +9,14 @@ class PopupStyle {
         this._style.close = {};
     }
 
-    setParams(position, width, padding, borderThickness, borderColor, borderRadius, backgroundColor) {
+    setParams(position, formStyle, width, padding, borderThickness, borderColor, borderRadius, backgroundColor) {
         this._setPosition(width, position);
+        this._setFormStyle(formStyle);
         this._setWidth(width);
         this._setHeight();
         this._setPadding(padding);
-        this._borderThickness(borderThickness),
-        this._borderColor(borderColor),
+        this._borderThickness(borderThickness);
+        this._borderColor(borderColor);
         this._setBorderRadius(borderRadius);
         this._setBackgroundColor(backgroundColor);
         this._setClose(borderThickness);
@@ -65,6 +66,10 @@ class PopupStyle {
         }
 
         this._style.window.transform = `translate(${transformHorizontal}, ${transformVertical})`;
+    }
+
+    _setFormStyle(formStyle) {
+        this._style.formStyle = formStyle;
     }
 
     _setWidth(width) {

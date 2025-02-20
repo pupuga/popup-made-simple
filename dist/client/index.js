@@ -83,7 +83,7 @@ __webpack_require__.r(__webpack_exports__);
 const Popup = ({
   el
 }) => {
-  const objectPopupStyle = new _PopupStyle__WEBPACK_IMPORTED_MODULE_2__["default"]().setParams(el?.meta?._popup_made_simple_position[0], el?.meta?._popup_made_simple_window_width[0], el?.meta?._popup_made_simple_window_padding[0], el?.meta?._popup_made_simple_window_border_thickness[0], el?.meta?._popup_made_simple_window_border_color[0], el?.meta?._popup_made_simple_window_border_radius[0], el?.meta?._popup_made_simple_window_background_color[0]);
+  const objectPopupStyle = new _PopupStyle__WEBPACK_IMPORTED_MODULE_2__["default"]().setParams(el?.meta?._popup_made_simple_position[0], el?.meta?._popup_made_simple_form_style[0], el?.meta?._popup_made_simple_window_width[0], el?.meta?._popup_made_simple_window_padding[0], el?.meta?._popup_made_simple_window_border_thickness[0], el?.meta?._popup_made_simple_window_border_color[0], el?.meta?._popup_made_simple_window_border_radius[0], el?.meta?._popup_made_simple_window_background_color[0]);
   const [close, setClose] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
   const onClose = () => {
     setClose(true);
@@ -151,12 +151,15 @@ class PopupStyle {
     this._style.window = {};
     this._style.close = {};
   }
-  setParams(position, width, padding, borderThickness, borderColor, borderRadius, backgroundColor) {
+  setParams(position, formStyle, width, padding, borderThickness, borderColor, borderRadius, backgroundColor) {
     this._setPosition(width, position);
+    this._setFormStyle(formStyle);
     this._setWidth(width);
     this._setHeight();
     this._setPadding(padding);
-    this._borderThickness(borderThickness), this._borderColor(borderColor), this._setBorderRadius(borderRadius);
+    this._borderThickness(borderThickness);
+    this._borderColor(borderColor);
+    this._setBorderRadius(borderRadius);
     this._setBackgroundColor(backgroundColor);
     this._setClose(borderThickness);
     return this;
@@ -195,6 +198,9 @@ class PopupStyle {
         transformHorizontal = "-50%";
     }
     this._style.window.transform = `translate(${transformHorizontal}, ${transformVertical})`;
+  }
+  _setFormStyle(formStyle) {
+    this._style.formStyle = formStyle;
   }
   _setWidth(width) {
     this._style.window.width = width === "100%" ? "100%" : `${width}px`;
@@ -241,6 +247,7 @@ const settings = {
   postType: "popup-made-simple",
   defaultValues: {
     position: "center-center",
+    formStyle: false,
     animation: "fade",
     windowWidth: 800,
     padding: 10,
@@ -390,7 +397,7 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + ".js?ver=" + "be903a860fc497e59493" + "";
+/******/ 			return "" + chunkId + ".js?ver=" + "1cf8fccc54a40c4a89bb" + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -714,9 +721,6 @@ const renderApp = () => {
     }
   }
 };
-
-//renderApp();
-//window.addEventListener("load", renderApp);
 document.addEventListener("DOMContentLoaded", renderApp);
 })();
 

@@ -2,6 +2,7 @@ const settings = {
     postType: "popup-made-simple",
     defaultValues: {
         position: "center-center",
+        formStyle: false,
         animation: "fade",
         windowWidth: 800,
         padding: 10,

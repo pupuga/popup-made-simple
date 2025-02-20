@@ -23,6 +23,5 @@ const renderApp = () => {
     }
 }
 
-//renderApp();
-//window.addEventListener("load", renderApp);
+
 document.addEventListener("DOMContentLoaded", renderApp);

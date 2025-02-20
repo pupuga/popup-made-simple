@@ -13,6 +13,7 @@ const POST_TYPE = 'popup-made-simple';
     const META_FIELDS = [
         '_popup_made_simple_page' => 'string',
         '_popup_made_simple_position' => 'string',
+        '_popup_made_simple_form_style' => 'boolean',
         '_popup_made_simple_animation' => 'string',
         '_popup_made_simple_window_width' => 'integer',
         '_popup_made_simple_window_padding' => 'integer',

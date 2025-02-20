@@ -1,6 +1,6 @@
 {
   "name": "popup-made-simple",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "author": "Alex Shandor",
   "license": "GPL-3.0-or-later",
   "main": "dist/index.js",

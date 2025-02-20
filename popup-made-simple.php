@@ -4,7 +4,7 @@
  * Description:       The Popup made simple plugin helps you simply create a popup.
  * Requires at least: 6.7
  * Requires PHP:      8.3
- * Version:           1.4.0
+ * Version:           1.5.0
  * Author:            Alex Shandor
  * License:           GPL-3.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html

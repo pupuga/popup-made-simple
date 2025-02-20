@@ -41,6 +41,7 @@ const PostTypeSidebar = () => {
         const defaultMeta = {
             _popup_made_simple_position: meta?._popup_made_simple_position || settings.defaultValues.position,
             _popup_made_simple_animation: meta?._popup_made_simple_animation || settings.defaultValues.animation,
+            _popup_made_simple_form_style: meta?._popup_made_simple_form_style || settings.defaultValues.formStyle,
             _popup_made_simple_window_width: meta?._popup_made_simple_window_width || settings.defaultValues.windowWidth,
             _popup_made_simple_window_padding: meta?._popup_made_simple_window_padding || settings.defaultValues.padding,
             _popup_made_simple_window_border_thickness: meta?._popup_made_simple_window_border_thickness || settings.defaultValues.borderThickness,
@@ -75,8 +76,7 @@ const PostTypeSidebar = () => {
     return (
         <>
             {loading ? <Spinner/> :
-                <PluginDocumentSettingPanel name={`${settings.postType}-config`} title="Popup Config"
-                                            className={`${settings.postType}`}>
+                <PluginDocumentSettingPanel name={`${settings.postType}-config`} title="Popup Config" className={`${settings.postType}`}>
                     <SelectControl
                         label="Select a page"
                         value={meta?._popup_made_simple_page || ""}
@@ -89,6 +89,13 @@ const PostTypeSidebar = () => {
                         options={positionOptions}
                         onChange={value => editPost({meta: {...meta, _popup_made_simple_position: value}})}
                     />
+                    <div className="field-wrapper-row">
+                        <CheckboxControl
+                            label="Using form style"
+                            checked={meta?._popup_made_simple_form_style}
+                            onChange={value => editPost({meta: {...meta, _popup_made_simple_form_style: value}})}
+                        />
+                    </div>
                     <SelectControl
                         label="Select a type of animation"
                         value={meta?._popup_made_simple_animation}
