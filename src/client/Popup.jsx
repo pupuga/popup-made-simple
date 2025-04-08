@@ -35,11 +35,25 @@ const Popup = ({el}) => {
     }, []);
 
     useEffect(() => {
+        let formInit;
         const time = setTimeout(() => {
             setClose(false);
+
+            if (typeof wpcf7 !== "undefined") {
+                 formInit = setTimeout(() => {
+                    const formObject = document.querySelector(`.${settings.postType}-${el.id} .wpcf7-form`);
+                    if (formObject !== null) {
+                        wpcf7.init(formObject);
+                    }
+                }, 100);
+            }
+
         }, el.meta._popup_made_simple_appear_time[0] * 1000);
 
-        return () => clearTimeout(time);
+        return () => {
+            clearTimeout(time);
+            clearTimeout(formInit)
+        }
     }, []);
 
     useEffect(() => {

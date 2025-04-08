@@ -12,16 +12,8 @@ const renderApp = () => {
         rootElement = document.createElement("div");
         rootElement.id = id;
         document.body.appendChild(rootElement);
-        createRoot(rootElement).render(<App/>);
-        if (typeof wpcf7 !== "undefined") {
-            setTimeout(() => {
-                rootElement.querySelectorAll(".wpcf7-form").forEach((form) => {
-                    wpcf7.init(form);
-                });
-            }, 100);
-        }
+        createRoot(rootElement).render(<App />);
     }
 }
-
 
 document.addEventListener("DOMContentLoaded", renderApp);
